@@ -20,7 +20,10 @@ class NotesView extends StatelessWidget {
                 return const AddNewNoteBottomSheet();
               });
         },
-        child: const Icon(Icons.add),
+        child: const Icon(
+          Icons.add,
+          size: 35,
+        ),
       ),
       body: const NotesViewBody(),
     );
