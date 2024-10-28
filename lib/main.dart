@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:note_app/views/edit_note_view.dart';
 import 'package:note_app/views/notes_view.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 
 void main() {
   runApp(const NoteApp());
@@ -17,6 +19,9 @@ class NoteApp extends StatelessWidget {
           useMaterial3: false,
           brightness: Brightness.dark,
           fontFamily: GoogleFonts.poppins().fontFamily),
+          routes: {
+           EditNoteView.id : (context) => const EditNoteView()
+          },
       home: const NotesView(),
     );
   }
