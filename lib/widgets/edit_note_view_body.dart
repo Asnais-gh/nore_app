@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:note_app/const.dart';
+import 'package:note_app/widgets/custom_app_bar.dart';
 import 'package:note_app/widgets/custom_butten.dart';
 import 'package:note_app/widgets/custom_textfield.dart';
 
@@ -8,28 +9,30 @@ class EditNoteViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
+    return const Padding(
+      padding: EdgeInsets.symmetric(horizontal: 24),
       child: Column(
         children: [
-          const SizedBox(height: 32),
+           SizedBox(height: 50),
+           CustomAppBar(title: 'Edit Note',icon: Icons.check,),
+           SizedBox(height: 32),
           CustomTextField(
             hinttext: 'Title',
           ),
-          const SizedBox(height: 16),
+           SizedBox(height: 16),
           CustomTextField(
             hinttext: 'Contant',
             maxLines: 5,
           ),
-          const SizedBox(height: 64),
-          const CustomButton(
+           SizedBox(height: 64),
+           CustomButton(
             buttenText: 'Add',
             backGroundColor: KBottomShetColor,
             textcolor: Colors.black,
             fontSize: 18,
             fontWeight: FontWeight.bold,
           ),
-          const SizedBox(height: 16),
+           SizedBox(height: 16),
         ],
       ),
     );

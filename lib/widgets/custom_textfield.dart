@@ -3,15 +3,15 @@ import 'package:note_app/const.dart';
 
 // ignore: must_be_immutable
 class CustomTextField extends StatelessWidget {
-  CustomTextField({
+  const CustomTextField({
     super.key,
     required this.hinttext,
     this.onChanged,
-     this.maxLines,
+    this.maxLines,
   });
   final String hinttext;
   final int? maxLines;
-  Function(String)? onChanged;
+  final Function(String)? onChanged;
   @override
   Widget build(BuildContext context) {
     return TextField(

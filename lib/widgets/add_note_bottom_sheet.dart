@@ -11,27 +11,27 @@ class AddNewNoteBottomSheet extends StatelessWidget {
     final bottomPadding = MediaQuery.of(context).viewInsets.bottom;
     return Padding(
       padding: EdgeInsets.only(right: 16,left: 16,bottom: bottomPadding),
-      child: SingleChildScrollView(
+      child: const SingleChildScrollView(
         child: Column(
           children: [
-            const SizedBox(height: 32),
-            CustomTextField(
+            SizedBox(height: 32),
+             CustomTextField(
               hinttext: 'Title',
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             CustomTextField(
               hinttext: 'Contant',
               maxLines: 5,
             ),
-            const SizedBox(height: 64),
-            const CustomButton(
+            SizedBox(height: 64),
+            CustomButton(
               buttenText: 'Add',
               backGroundColor: KBottomShetColor,
               textcolor: Colors.black,
               fontSize: 18,
               fontWeight: FontWeight.bold,
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
           ],
         ),
       ),
