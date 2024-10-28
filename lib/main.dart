@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:note_app/const.dart';
 import 'package:note_app/views/edit_note_view.dart';
 import 'package:note_app/views/notes_view.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-
-void main() {
+void main() async {
+  await Hive.initFlutter();
+  await Hive.openBox(kNotedBox);
   runApp(const NoteApp());
 }
 
@@ -19,9 +22,7 @@ class NoteApp extends StatelessWidget {
           useMaterial3: false,
           brightness: Brightness.dark,
           fontFamily: GoogleFonts.poppins().fontFamily),
-          routes: {
-           EditNoteView.id : (context) => const EditNoteView()
-          },
+      routes: {EditNoteView.id: (context) => const EditNoteView()},
       home: const NotesView(),
     );
   }
