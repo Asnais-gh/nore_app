@@ -5,7 +5,7 @@ import 'package:note_app/widgets/custom_butten.dart';
 import 'package:note_app/widgets/custom_textfield.dart';
 
 class EditNoteViewBody extends StatelessWidget {
-  EditNoteViewBody({super.key});
+ const EditNoteViewBody({super.key});
 
 
      
