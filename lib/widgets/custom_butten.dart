@@ -7,9 +7,10 @@ class CustomButton extends StatelessWidget {
       this.onTap,
       this.backGroundColor,
       this.textcolor,
-      this.fontSize,  this.fontWeight});
+      this.fontSize,
+      this.fontWeight});
   final String buttenText;
-  final VoidCallback? onTap;
+  final void Function()? onTap;
   final Color? backGroundColor;
   final Color? textcolor;
   final double? fontSize;
@@ -29,9 +30,7 @@ class CustomButton extends StatelessWidget {
             child: Text(
           buttenText,
           style: TextStyle(
-              color: textcolor,
-              fontSize: fontSize,
-              fontWeight: fontWeight),
+              color: textcolor, fontSize: fontSize, fontWeight: fontWeight),
         )),
       ),
     );
