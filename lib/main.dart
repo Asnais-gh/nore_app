@@ -8,7 +8,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 void main() async {
   await Hive.initFlutter();
-  await Hive.openBox(kNotedBox);
+  await Hive.openBox(kNoteBox);
   Hive.registerAdapter(NoteModelAdapter());
   runApp(const NoteApp());
 }

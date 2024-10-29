@@ -3,4 +3,4 @@
 import 'package:flutter/material.dart';
 
 const KBottomShetColor = Color(0xff62FCD7);
-const kNotedBox = 'notes_box';
+const kNoteBox = 'notes_box';
