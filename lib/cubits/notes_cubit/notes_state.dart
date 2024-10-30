@@ -8,9 +8,9 @@ final class NotesInitial extends NotesState {}
 final class NotesLouding extends NotesState {}
 
 final class NotesSuccess extends NotesState {
-  final List<NoteModel> Notes;
+  final List<NoteModel> notes;
 
-  NotesSuccess(this.Notes);
+  NotesSuccess(this.notes);
 }
 
 final class NotesFailure extends NotesState {
