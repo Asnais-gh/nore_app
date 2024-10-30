@@ -10,10 +10,11 @@ import 'package:note_app/views/notes_view.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() async {
-  Bloc.observer = SimpelBlocObservir();
   await Hive.initFlutter();
-  await Hive.openBox(kNoteBox);
+  Bloc.observer = SimpelBlocObservir();
   Hive.registerAdapter(NoteModelAdapter());
+  await Hive.openBox<NoteModel>(kNoteBox);
+
   runApp(const NoteApp());
 }
 
@@ -22,21 +23,14 @@ class NoteApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (context) => AddNoteCubit(),
-        ),
-      ],
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-            useMaterial3: false,
-            brightness: Brightness.dark,
-            fontFamily: GoogleFonts.poppins().fontFamily),
-        routes: {EditNoteView.id: (context) => const EditNoteView()},
-        home: const NotesView(),
-      ),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+          useMaterial3: false,
+          brightness: Brightness.dark,
+          fontFamily: GoogleFonts.poppins().fontFamily),
+      routes: {EditNoteView.id: (context) => const EditNoteView()},
+      home: const NotesView(),
     );
   }
 }
