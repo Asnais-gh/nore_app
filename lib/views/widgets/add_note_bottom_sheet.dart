@@ -12,24 +12,26 @@ class AddNewNoteBottomSheet extends StatelessWidget {
     final bottomPadding = MediaQuery.of(context).viewInsets.bottom;
     return BlocProvider(
       create: (context) => AddNoteCubit(),
-      child: Padding(
-        padding: EdgeInsets.only(right: 16, left: 16, bottom: bottomPadding),
-        child: BlocConsumer<AddNoteCubit, AddNoteState>(
-          listener: (context, state) {
-            if (state is AddNoteFailure) {
-              // ignore: avoid_print
-              print('failer ${state.errmessage}');
-            }
-            if (state is AddNoteSuccess) {
-              Navigator.pop(context);
-            }
-          },
-          builder: (context, state) {
-            return ModalProgressHUD(
-                inAsyncCall: state is AddNoteLouding ? true : false,
-                child: const SingleChildScrollView(child: AddNoteForm()));
-          },
-        ),
+      child: BlocConsumer<AddNoteCubit, AddNoteState>(
+        listener: (context, state) {
+          if (state is AddNoteFailure) {
+            // ignore: avoid_print
+            print('failer ${state.errmessage}');
+          }
+          if (state is AddNoteSuccess) {
+            Navigator.pop(context);
+          }
+        },
+        builder: (context, state) {
+          return AbsorbPointer(
+            absorbing: state is AddNoteLouding ? true : false,
+            child: Padding(
+              padding:
+                  EdgeInsets.only(right: 16, left: 16, bottom: bottomPadding),
+              child: const SingleChildScrollView(child: AddNoteForm()),
+            ),
+          );
+        },
       ),
     );
   }

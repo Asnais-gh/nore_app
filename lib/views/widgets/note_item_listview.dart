@@ -11,13 +11,13 @@ class NotesItemListView extends StatelessWidget {
       child: ListView.builder(
           padding: EdgeInsets.zero,
           itemBuilder: (context, index) {
-            final colors = [
-              Colors.red,
-              Colors.green,
-              Colors.blue,
-              Colors.orange
-            ];
-            final itemColor = colors[index % colors.length];
+            // final colors = [
+            //   Colors.red,
+            //   Colors.green,
+            //   Colors.blue,
+            //   Colors.orange
+            // ];
+            // final itemColor = colors[index % colors.length];
             return const Padding(
               padding: EdgeInsets.symmetric(vertical: 4),
               child: NoteItem(
