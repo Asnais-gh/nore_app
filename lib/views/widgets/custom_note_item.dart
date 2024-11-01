@@ -13,7 +13,7 @@ class NoteItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, EditNoteView.id);
+        Navigator.pushNamed(context, EditNoteView.id,arguments: noteModelAtNoteItem);
       },
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 24),

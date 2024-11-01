@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:note_app/const.dart';
 import 'package:note_app/cubits/addNote_cubit/add_note_cubit.dart';
 import 'package:note_app/model/note_model.dart';
+import 'package:note_app/views/widgets/color_list_view.dart';
 import 'package:note_app/views/widgets/custom_butten.dart';
 import 'package:note_app/views/widgets/custom_textfield.dart';
 
@@ -42,27 +43,14 @@ class _AddNoteFormState extends State<AddNoteForm> {
             hinttext: 'Contant',
             maxLines: 5,
           ),
-          const SizedBox(height: 64),
+          const SizedBox(height: 32),
+          const ColorListView(),
           BlocBuilder<AddNoteCubit, AddNoteState>(
             builder: (context, state) {
               return CustomButton(
                 islouding: state is AddNoteLouding ? true : false,
                 onTap: () {
-                  if (formKey.currentState!.validate()) {
-                    formKey.currentState!.save();
-                    var currentTime = DateTime.now();
-                    String formattedDate =
-                        DateFormat('yyyy/MM/dd - hh:mm a').format(currentTime);
-                    var noteModel = NoteModel(
-                        title: title!,
-                        contant: contant!,
-                        date: formattedDate,
-                        color: Colors.blue.value);
-                    BlocProvider.of<AddNoteCubit>(context).addNote(noteModel);
-                  } else {
-                    autovalidateMode = AutovalidateMode.always;
-                    setState(() {});
-                  }
+                  _saveNote(context);
                 },
                 buttenText: 'Add',
                 backGroundColor: KBottomShetColor,
@@ -77,4 +65,20 @@ class _AddNoteFormState extends State<AddNoteForm> {
       ),
     );
   }
+
+  void _saveNote(BuildContext context) {
+    if (formKey.currentState!.validate()) {
+      formKey.currentState!.save();
+      var noteModel = NoteModel(
+          title: title!,
+          contant: contant!,
+          date: DateFormat('yyyy/MM/dd - hh:mm a').format(DateTime.now()),
+          color: Colors.blue.value);
+      BlocProvider.of<AddNoteCubit>(context).addNote(noteModel);
+    } else {
+      autovalidateMode = AutovalidateMode.always;
+      setState(() {});
+    }
+  }
 }
+

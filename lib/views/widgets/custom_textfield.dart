@@ -3,7 +3,7 @@ import 'package:note_app/const.dart';
 
 // ignore: must_be_immutable
 class CustomTextField extends StatelessWidget {
-  const CustomTextField({
+  const CustomTextField( {
     super.key,
     this.hinttext,
     this.onChanged,
@@ -13,7 +13,7 @@ class CustomTextField extends StatelessWidget {
   });
   final String? hinttext;
   final int? maxLines;
-  final Function(String)? onChanged;
+  final void Function(String)? onChanged;
   final TextEditingController? controller; // Accepts a controller
   final void Function(String?)? onSeved;
   @override
